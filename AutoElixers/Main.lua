@@ -5,7 +5,7 @@ local function use_item(item_data)
     local consumables = get_local_player():get_consumable_items()
     for _, consumable in ipairs(consumables) do
         local consumable_sno_id = consumable:get_sno_id()
-        if consumable.name == item_data.name or consumable_sno_id == item_data.sno_id then
+        if consumable.name == item_data.name or consumable_sno_id == item_data.id then
             consumable:use()
             return true
         end
@@ -31,7 +31,7 @@ local function check_and_use_consumables(table_name, interval)
     end
 end
 
-local function on_tick()
+on_update(function ()
     if menu.is_enabled() then
         check_and_use_consumables("Elixir", 20 * 60)  -- 20 minutes
         check_and_use_consumables("Incense I", 20 * 60)
@@ -39,12 +39,10 @@ local function on_tick()
         check_and_use_consumables("Incense III", 20 * 60)
         check_and_use_consumables("Helltide", 60 * 60)  -- 60 minutes
     end
-    
+end)
+
+on_render_menu(function ()
     menu.render_menu()
-end
+end)
 
 console.print("Auto Elixirs script loaded!")
-
--- Make sure to register the on_tick function with your game's event system
--- This line might look different depending on your game's API
-register_event("on_tick", on_tick)

@@ -15,19 +15,15 @@ local menu_elements = {
 local consumables = {
     ["Elixir"] = {
         {name = "Elixir of Advantage II", id = 1841197},
-        {name = "Elixir of Precision II", id = 1066737},
-        {name = "Elixir of Curative", id = 1241387}
     },
     ["Incense I"] = {
         {name = "Sage's Whisper", id = 732722}
     },
     ["Incense II"] = {
         {name = "Soothing Spices", id = 731614},
-        {name = "Spiral Morning", id = 732758}
     },
     ["Incense III"] = {
         {name = "Chorus of War", id = 731872},
-        {name = "Elixir of Antivenin", id = 1241387}
     },
     ["Helltide"] = {
         {name = "Profane Mindcage", id = 1882910}
